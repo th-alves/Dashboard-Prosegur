@@ -38,14 +38,14 @@ const Dashboard = () => {
   const mockCities = {
     'Apoio Filial_16': ['São Paulo', 'Rio de Janeiro', 'Belo Horizonte', 'Porto Alegre'],
     'Técnico_66': ['Brasília', 'Salvador', 'Fortaleza', 'Curitiba'],
-    'Técnico_06': ['Recife', 'Manaus', 'Belém', 'Goiânia']
+    'Técnico_06': ['Recife', 'Manaus', 'Belém', 'Goiânia', 'Minas Gerais']
   };
 
   // Links das planilhas - você pode alterar estes links quando atualizar as planilhas
   const planilhaLinks = {
-    'Apoio Filial_16': 'https://docs.google.com/spreadsheets/d/1exemplo_apoio_filial_16/edit#gid=0',
-    'Técnico_66': 'https://docs.google.com/spreadsheets/d/1exemplo_tecnico_66/edit#gid=0',
-    'Técnico_06': 'https://docs.google.com/spreadsheets/d/1exemplo_tecnico_06/edit#gid=0'
+    'Apoio Filial_16': 'https://docs.google.com/spreadsheets/d/1vhGxHwCwg2_uCxc1uWHKmsnGNjn19-x3kPwk9Fabo64/edit?gid=0#gid=0',
+    'Técnico_66': 'https://docs.google.com/spreadsheets/d/1vhGxHwCwg2_uCxc1uWHKmsnGNjn19-x3kPwk9Fabo64/edit?gid=0#gid=0',
+    'Técnico_06': 'https://docs.google.com/spreadsheets/d/1vhGxHwCwg2_uCxc1uWHKmsnGNjn19-x3kPwk9Fabo64/edit?gid=0#gid=0'
   };
 
   const mockManuals = [
