@@ -41,6 +41,13 @@ const Dashboard = () => {
     'Técnico_06': ['Recife', 'Manaus', 'Belém', 'Goiânia']
   };
 
+  // Links das planilhas - você pode alterar estes links quando atualizar as planilhas
+  const planilhaLinks = {
+    'Apoio Filial_16': 'https://docs.google.com/spreadsheets/d/1exemplo_apoio_filial_16/edit#gid=0',
+    'Técnico_66': 'https://docs.google.com/spreadsheets/d/1exemplo_tecnico_66/edit#gid=0',
+    'Técnico_06': 'https://docs.google.com/spreadsheets/d/1exemplo_tecnico_06/edit#gid=0'
+  };
+
   const mockManuals = [
     {
       id: 'Manual_25',
@@ -137,13 +144,23 @@ const Dashboard = () => {
   };
 
   const handleExcelDownload = (fileName) => {
-    toast({
-      title: "Download iniciado",
-      description: `Abrindo planilha ${fileName}...`,
-    });
-    setTimeout(() => {
-      window.open('#', '_blank');
-    }, 500);
+    const link = planilhaLinks[fileName];
+    
+    if (link) {
+      // Abre a planilha em nova aba
+      window.open(link, '_blank');
+      
+      toast({
+        title: "Planilha aberta",
+        description: `Abrindo planilha ${fileName} em nova aba...`,
+      });
+    } else {
+      toast({
+        title: "Erro",
+        description: "Link da planilha não encontrado",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleCopyText = async (text, type) => {
@@ -400,6 +417,10 @@ const Dashboard = () => {
 
             <div>
               <h2 className="text-xl font-semibold text-gray-900 mb-4">Planilhas de Apoio</h2>
+              {/* 
+                IMPORTANTE: Para atualizar os links das planilhas, edite o objeto 'planilhaLinks' no início do componente.
+                Você pode usar links do Google Sheets, OneDrive, ou qualquer plataforma de planilhas online.
+              */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {['Apoio Filial_16', 'Técnico_66', 'Técnico_06'].map((sheet, index) => (
                   <Card key={index} className="hover:shadow-lg transition-all duration-300 border-l-4 border-l-yellow-500 cursor-pointer" onClick={() => handleExcelDownload(sheet)}>
@@ -408,7 +429,7 @@ const Dashboard = () => {
                         <FileSpreadsheet className="h-8 w-8 text-yellow-600" />
                       </div>
                       <CardTitle className="text-lg">{sheet}</CardTitle>
-                      <CardDescription>Planilha Excel</CardDescription>
+                      <CardDescription>Planilha Online</CardDescription>
                     </CardHeader>
                     <CardContent>
                       <Button variant="outline" className="w-full border-yellow-500 text-yellow-700 hover:bg-yellow-50" onClick={(e) => {e.stopPropagation(); handleExcelDownload(sheet);}}>
