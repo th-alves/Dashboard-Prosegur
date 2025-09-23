@@ -544,14 +544,14 @@ const Dashboard = () => {
           variant="outline"
           size="icon"
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="bg-white/90 backdrop-blur-lg shadow-xl border-white/50 rounded-2xl h-12 w-12"
+          className="bg-yellow-500 hover:bg-black hover:text-white backdrop-blur-lg shadow-xl border-white/50 rounded-2xl h-12 w-12"
         >
           {sidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
 
       {/* Mobile Sidebar */}
-      <div className={`lg:hidden fixed inset-y-0 right-0 z-40 w-80 transform transition-transform duration-300 ease-in-out ${
+      <div className={`lg:hidden fixed inset-y-0 right-0 bottom-7 z-40 w-80 transform transition-transform duration-300 ease-in-out ${
         sidebarOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <div className="flex flex-col h-full m-4 bg-white/90 backdrop-blur-lg shadow-2xl rounded-3xl border border-white/50">
@@ -598,14 +598,14 @@ const Dashboard = () => {
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-30 rounded-3xl"
+          className="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
           onClick={() => setSidebarOpen(false)}
         />
       )}
 
       {/* Main content */}
       <div className="lg:ml-80 flex flex-col">
-        <main className="p-8 lg:p-12">
+        <main className="p-2 lg:p-12">
           <div className="bg-white/70 backdrop-blur-lg rounded-3xl shadow-xl border border-white/50 p-8 lg:p-12">
             {renderContent()}
           </div>
