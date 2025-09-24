@@ -241,6 +241,14 @@ const Dashboard = () => {
     handleCopyText(value, fieldName);
   };
 
+  const copyManualCompleto = (manual) => {
+    const texto = `Nome: ${manual.nome}
+Telefone: ${manual.telefone}
+CNPJ: ${manual.cnpj}
+Motivo: ${manual.motivo}`;
+    handleCopyText(texto, 'Manual completo');
+  };
+
   // Funções para cadastros
   const updateCadastro = (index, field, value) => {
     const newCadastros = [...cadastros];
