@@ -496,6 +496,18 @@ Motivo: ${manual.motivo}`;
                         className="w-full px-3 py-2 border rounded-md text-sm resize-none h-16"
                       />
                     </div>
+
+                    {/* Botão copiar tudo */}
+                    <div className="pt-4 border-t">
+                      <Button 
+                        variant="outline" 
+                        className="w-full border-red-800 text-red-800 hover:bg-red-50"
+                        onClick={() => copyManualCompleto(manual)}
+                      >
+                        <Copy className="h-4 w-4 mr-2" />
+                        Copiar Manual Completo
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
